@@ -17,8 +17,16 @@
   border-radius: 6px;
   padding: 15px;
   margin: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .toDoItem:hover {
   background: rgb(241, 241, 241);
+}
+
+.toDoItem input[type="checkbox"] {
+  align-self: center;
+  width: 20px;
+  height: 20px;
 }
