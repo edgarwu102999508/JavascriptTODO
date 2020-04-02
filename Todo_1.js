@@ -19,11 +19,12 @@ function loadEventListener() {
 function addTask(e) {
   if (taskInput.value === "") {
     alert("Please input your task name.");
+    return;
   }
 
   // Create li element
   const li = document.createElement("li");
-  li.className = "toDoItem";
+  li.id = "listItem";
 
   // Create cheakbox
   li.innerHTML = '<input class="checkTask" type="checkbox" />';

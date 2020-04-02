@@ -1,27 +1,30 @@
-.toDoList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.listTitle {
+  border-bottom: solid 1px #007bff;
+}
+
+.toDoList,
+.toDoList-1,
+.toDoList-2,
+.toDoList-3 {
   margin-top: 10px;
   padding: 0;
 }
 
-.toDoItem {
-  width: 100%;
+#listItem {
   list-style: none;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: rgba(248, 248, 248, 0.411);
   border-radius: 6px;
-  padding: 15px;
-  margin: 10px;
+  padding: 6px;
+  margin-top: 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.toDoItem:hover {
+#listItem:hover {
   background: rgb(241, 241, 241);
 }
 
