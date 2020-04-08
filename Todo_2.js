@@ -25,31 +25,27 @@ function loadEventListener() {
   categoryA.addEventListener("click", removeTask);
   categoryB.addEventListener("click", removeTask);
   categoryC.addEventListener("click", removeTask);
-
-  // checkBox.addEventListener("change", checkTask);
 }
 
 function selectCategory(e) {
   if (selection.selectedIndex === 0) {
-    addTask(e);
+    removeTask(e);
   } else if (selection.selectedIndex === 1) {
-    addTask(e);
+    removeTask(e);
   } else {
-    addTask(e);
+    removeTask(e);
   }
   e.preventDefault();
 }
 
 function addTask(e) {
-  if (taskInput.value === "") {
-    return;
-  }
   // Create li element
   const li = document.createElement("li");
   li.id = "listItem";
 
   // Create cheakbox
-  li.innerHTML = '<input class="check" type="checkbox" />';
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
 
   // Create del button
   const a = document.createElement("a");
@@ -58,8 +54,13 @@ function addTask(e) {
   a.innerHTML = '<i class="fa fa-times text-danger"></i>';
 
   // Append element to li
+  li.appendChild(checkbox);
   li.appendChild(document.createTextNode(taskInput.value));
   li.appendChild(a);
+
+  if (taskInput.value === "") {
+    return alert("Please input a task name!");
+  }
 
   // Append li to ul
   if (selection.selectedIndex === 0) {
@@ -69,6 +70,16 @@ function addTask(e) {
   } else {
     categoryC.appendChild(li);
   }
+
+  checkbox.addEventListener("change", function() {
+    if (this.checked) {
+      this.parentNode.style.textDecoration = "line-through";
+      this.parentNode.style.color = "#28a745";
+    } else {
+      this.parentNode.style.textDecoration = "none";
+      this.parentNode.style.color = "#343a40";
+    }
+  });
 
   // Clear input
   taskInput.value = "";
@@ -91,13 +102,3 @@ function removeTask(e) {
     }
   }
 }
-
-// function checkTask(e) {
-//   if (e.target.classList.contains("check")) {
-//     if (checkTask.checked == true) {
-//       console.log("good");
-//     } else {
-//       e.target.sytle.color = "black";
-//     }
-//   }
-// }
